@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest.apps.RestConfig",
-    "webpack_loader",
+    # "webpack_loader",
     "addresses.apps.AddressesConfig",
 ]
 
@@ -123,19 +123,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR.joinpath("static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "CACHE": not DEBUG,
-        "BUNDLE_DIR_NAME": "webpack_bundles/",  # must end with slash
-        "STATS_FILE": os.path.join(BASE_DIR, "frontend", "webpack-stats.json"),
-        "POLL_INTERVAL": 0.1,
-        "TIMEOUT": None,
-        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
-    }
-}
+# WEBPACK_LOADER = {
+#     "DEFAULT": {
+#         "CACHE": not DEBUG,
+#         "BUNDLE_DIR_NAME": "webpack_bundles/",  # must end with slash
+#         "STATS_FILE": os.path.join(BASE_DIR, "frontend", "webpack-stats.json"),
+#         "POLL_INTERVAL": 0.1,
+#         "TIMEOUT": None,
+#         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+#     }
+# }

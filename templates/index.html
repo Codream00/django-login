@@ -1,17 +1,3 @@
-{% load render_bundle from webpack_loader %}
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>Example</title>
-  {% render_bundle 'app' 'css' %}
-</head>
-
-<body>
-  <p>hello, World!</p>
-  <div id="app"></div>
-  {% render_bundle 'app' 'js' %}
-</body>
-
-</html>
+{% extends 'base-vue.html' %} {% block content %}
+<div id="app"></div>
+{% endblock %}
